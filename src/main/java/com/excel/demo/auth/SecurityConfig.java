@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and().csrf().disable()
-		.authorizeRequests().antMatchers("/","/common/user/page","common/getExcel").permitAll().anyRequest().authenticated().and().httpBasic();
+		.authorizeRequests().antMatchers("/","/common/user/page","/common/getExcel").permitAll().anyRequest().authenticated().and().httpBasic();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.httpBasic().authenticationEntryPoint(authenticateEntryPoint);
 	}
